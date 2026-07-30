@@ -1,0 +1,90 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About the Local Certificate &middot; Curfew</title>
+<meta name="description" content="About the Local Certificate for Curfew, the Windows app and website blocker.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4.5' y='10.5' width='15' height='10' rx='2.5' fill='%23E7B45B'/%3E%3Cpath d='M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5' stroke='%23E7B45B' stroke-width='2.1' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg:#E7EBF1; --surface:#FFF; --ink:#121A26; --muted:#57647A;
+    --line:#D5DBE5; --accent:#B77E22;
+    --sans: system-ui,"Segoe UI",-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono: ui-monospace,"Cascadia Code","SF Mono","Consolas","Menlo",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0E1521; --surface:#16202E; --ink:#E9ECF3; --muted:#94A0B4;
+             --line:rgba(255,255,255,.09); --accent:#E7B45B; }
+  }
+  :root[data-theme="dark"] { --bg:#0E1521; --surface:#16202E; --ink:#E9ECF3;
+      --muted:#94A0B4; --line:rgba(255,255,255,.09); --accent:#E7B45B; }
+  :root[data-theme="light"] { --bg:#E7EBF1; --surface:#FFF; --ink:#121A26;
+      --muted:#57647A; --line:#D5DBE5; --accent:#B77E22; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+         line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 24px; }
+  header { border-bottom:1px solid var(--line); padding:20px 0; }
+  header .wrap { display:flex; align-items:center; gap:10px; }
+  header a { display:flex; align-items:center; gap:10px; color:var(--ink);
+              text-decoration:none; font-weight:700; letter-spacing:-.01em; }
+  main { background:var(--surface); border:1px solid var(--line); border-radius:16px;
+          padding:clamp(28px,5vw,56px); margin:40px auto 64px; }
+  h1 { font-size:clamp(1.8rem,4vw,2.4rem); font-weight:800; letter-spacing:-.02em;
+        margin:0 0 .6em; }
+  h2 { font-size:1.15rem; font-weight:700; margin:2em 0 .5em; letter-spacing:-.01em; }
+  h3 { font-size:1rem; font-weight:700; margin:1.6em 0 .4em; }
+  p, li { color:var(--ink); }
+  ul, ol { padding-left:1.3em; }
+  li { margin:.35em 0; }
+  a { color:var(--accent); }
+  code { font-family:var(--mono); font-size:.9em; background:rgba(128,128,128,.13);
+          padding:.15em .4em; border-radius:5px; }
+  hr { border:0; border-top:1px solid var(--line); margin:2em 0; }
+  strong { font-weight:700; }
+  .meta { color:var(--muted); font-size:.9rem; }
+  footer { border-top:1px solid var(--line); padding:28px 0 56px; color:var(--muted);
+            font-size:.88rem; }
+  footer a { color:var(--muted); margin-right:18px; }
+  table { width:100%; border-collapse:collapse; margin:1.2em 0; display:block;
+           overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:8px 12px; text-align:left; }
+</style>
+<header><div class="wrap"><a href="../index.html">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" fill="var(--accent)"/><path d="M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5" stroke="var(--accent)" stroke-width="2.1" fill="none"/></svg>
+  Curfew</a></div></header>
+<div class="wrap"><main>
+<h1>Local certificate disclosure — Curfew for Windows</h1>
+<p>A transparent explanation of the local certificate Curfew uses. This exists for user trust, for antivirus/store reviewers, and as the in-app consent text.</p>
+<h2>What it is</h2>
+<p>To show a proper "This site is blocked" page on <strong>HTTPS</strong> websites (instead of a raw browser connection error), Curfew runs a tiny web server on your own computer at <code>127.0.0.1</code> and needs a certificate browsers will trust for the blocked site. To do that it:</p>
+<ol>
+<li>Generates a <strong>local root certificate authority (CA)</strong> named <em>"Curfew Local Block CA"</em> on your PC.</li>
+<li>Adds that CA to your machine's Trusted Root store so the block page loads without a warning.</li>
+<li>Uses it to issue on-the-fly certificates <strong>only</strong> for sites you have chosen to block, served</li>
+</ol>
+<p>   <strong>only</strong> from <code>127.0.0.1</code>.</p>
+<h2>What it is <em>not</em></h2>
+<ul>
+<li>It is <strong>not</strong> a man-in-the-middle proxy. Curfew does not sit between you and the internet, and does</li>
+</ul>
+<p>  not decrypt, inspect, log, or modify your real web traffic.</p>
+<ul>
+<li>The certificate is used <strong>only</strong> to render Curfew's own block page for domains you blocked.</li>
+</ul>
+<h2>How the key is protected</h2>
+<ul>
+<li>The CA's private key is generated on your machine and <strong>never leaves it</strong>.</li>
+<li>It is stored <strong>DPAPI-encrypted</strong> (Windows machine scope) in a directory whose permissions are</li>
+</ul>
+<p>  restricted to Administrators and SYSTEM — so other user accounts on the PC cannot read it.</p>
+<h2>It's optional, and you are asked first</h2>
+<p>Curfew <strong>asks before it installs anything</strong>. On first run it shows this explanation and waits for an explicit yes; nothing is added to your trust store unless you agree. Declining — or simply closing the prompt — is treated as "no."</p>
+<p>Without the certificate, blocked HTTPS sites <strong>fail to connect</strong> instead of showing the friendly block page. <strong>Blocking is exactly as strict either way</strong>, because the block itself comes from the hosts-file redirect, not from the certificate.</p>
+<h2>Changing your mind</h2>
+<p>Right-click the Curfew tray icon → <strong>"Block page certificate…"</strong> to install or remove it at any time. Removing it takes the CA out of the machine trust store and deletes the stored key immediately — you do not have to uninstall Curfew to get rid of it.</p>
+<h2>Removal</h2>
+<p>Uninstalling Curfew removes the CA from your trust store and deletes its key, and undoes the hosts and DNS changes. You can also remove <em>"Curfew Local Block CA"</em> manually via <strong>certmgr.msc → Trusted Root Certification Authorities</strong>.</p>
+</main></div>
+<footer><div class="wrap">
+  <a href="../index.html">Home</a><a href="license.html">License</a><a href="privacy.html">Privacy</a><a href="certificate.html">Certificate</a><a href="mailto:alexander.mcfadden@gmail.com">Support</a>
+  <p>&copy; 2026 Curfew. For Windows 10 &amp; 11.</p>
+</div></footer>

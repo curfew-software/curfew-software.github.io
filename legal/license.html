@@ -1,0 +1,97 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>License Agreement &middot; Curfew</title>
+<meta name="description" content="License Agreement for Curfew, the Windows app and website blocker.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4.5' y='10.5' width='15' height='10' rx='2.5' fill='%23E7B45B'/%3E%3Cpath d='M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5' stroke='%23E7B45B' stroke-width='2.1' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg:#E7EBF1; --surface:#FFF; --ink:#121A26; --muted:#57647A;
+    --line:#D5DBE5; --accent:#B77E22;
+    --sans: system-ui,"Segoe UI",-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;
+    --mono: ui-monospace,"Cascadia Code","SF Mono","Consolas","Menlo",monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0E1521; --surface:#16202E; --ink:#E9ECF3; --muted:#94A0B4;
+             --line:rgba(255,255,255,.09); --accent:#E7B45B; }
+  }
+  :root[data-theme="dark"] { --bg:#0E1521; --surface:#16202E; --ink:#E9ECF3;
+      --muted:#94A0B4; --line:rgba(255,255,255,.09); --accent:#E7B45B; }
+  :root[data-theme="light"] { --bg:#E7EBF1; --surface:#FFF; --ink:#121A26;
+      --muted:#57647A; --line:#D5DBE5; --accent:#B77E22; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+         line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:760px; margin:0 auto; padding:0 24px; }
+  header { border-bottom:1px solid var(--line); padding:20px 0; }
+  header .wrap { display:flex; align-items:center; gap:10px; }
+  header a { display:flex; align-items:center; gap:10px; color:var(--ink);
+              text-decoration:none; font-weight:700; letter-spacing:-.01em; }
+  main { background:var(--surface); border:1px solid var(--line); border-radius:16px;
+          padding:clamp(28px,5vw,56px); margin:40px auto 64px; }
+  h1 { font-size:clamp(1.8rem,4vw,2.4rem); font-weight:800; letter-spacing:-.02em;
+        margin:0 0 .6em; }
+  h2 { font-size:1.15rem; font-weight:700; margin:2em 0 .5em; letter-spacing:-.01em; }
+  h3 { font-size:1rem; font-weight:700; margin:1.6em 0 .4em; }
+  p, li { color:var(--ink); }
+  ul, ol { padding-left:1.3em; }
+  li { margin:.35em 0; }
+  a { color:var(--accent); }
+  code { font-family:var(--mono); font-size:.9em; background:rgba(128,128,128,.13);
+          padding:.15em .4em; border-radius:5px; }
+  hr { border:0; border-top:1px solid var(--line); margin:2em 0; }
+  strong { font-weight:700; }
+  .meta { color:var(--muted); font-size:.9rem; }
+  footer { border-top:1px solid var(--line); padding:28px 0 56px; color:var(--muted);
+            font-size:.88rem; }
+  footer a { color:var(--muted); margin-right:18px; }
+  table { width:100%; border-collapse:collapse; margin:1.2em 0; display:block;
+           overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:8px 12px; text-align:left; }
+</style>
+<header><div class="wrap"><a href="../index.html">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5" fill="var(--accent)"/><path d="M7.5 10.5V8a4.5 4.5 0 0 1 9 0v2.5" stroke="var(--accent)" stroke-width="2.1" fill="none"/></svg>
+  Curfew</a></div></header>
+<div class="wrap"><main>
+<h1>End User License Agreement — Curfew for Windows</h1>
+<p>_Last updated: 28 July 2026_</p>
+<p>This End User License Agreement ("Agreement") is between you and <strong>Alexander McFadden</strong>, an individual trading as Curfew ("we", "us"), for the <strong>Curfew</strong> software for Windows ("Software"). By installing or using the Software you agree to it. If you do not agree, do not install or use the Software.</p>
+<h2>1. License grant</h2>
+<p>We grant you a personal, non-exclusive, non-transferable license to install and use the Software on computers you own or control, for your own use, subject to this Agreement and your purchased license (or the free trial). A single license covers one individual across their personal PCs.</p>
+<h2>2. Trial</h2>
+<p>The Software may be used free for a 7-day trial. After the trial, a valid license key is required to add or change lockouts. Lockouts you already configured may continue to be enforced.</p>
+<h2>3. What the Software does to your system (important)</h2>
+<p>To block apps and websites system-wide, the Software, while installed and running, will:</p>
+<ul>
+<li>run a background Windows service with system privileges;</li>
+<li>terminate ("close") applications you have configured to block;</li>
+<li>modify the Windows <strong>hosts</strong> file to redirect blocked domains;</li>
+<li><strong>if you agree to it</strong>, install a <strong>local root certificate</strong> so it can display a block page on</li>
+</ul>
+<p>  HTTPS sites (the certificate and its private key remain on your computer; Curfew asks first, and   you may decline or later remove it — see the Privacy Policy and the certificate disclosure);</p>
+<ul>
+<li>adjust browser <strong>DNS-over-HTTPS</strong> policy while blocking is active.</li>
+</ul>
+<p>These changes are undone when you uninstall the Software. <strong>You consent to these changes</strong> by installing and using the Software.</p>
+<h2>4. Restrictions</h2>
+<p>You may not: resell, sublicense, rent, or distribute the Software or license keys; reverse engineer, decompile, or circumvent its licensing except as permitted by law; or remove proprietary notices.</p>
+<h2>5. Ownership</h2>
+<p>The Software is licensed, not sold. We retain all intellectual-property rights in it.</p>
+<h2>6. Disclaimer of warranties</h2>
+<p>THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. We do not warrant that blocking cannot be bypassed, that the Software is error-free, or that it will meet your requirements. Curfew is a productivity aid and commitment device, <strong>not</strong> a security or parental-control product, and not a guarantee against any determined user (including an administrator, who can always uninstall it).</p>
+<h2>7. Limitation of liability</h2>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF DATA, PROFITS, OR SYSTEM CONFIGURATION, ARISING FROM OR RELATED TO THE SOFTWARE. OUR TOTAL LIABILITY WILL NOT EXCEED THE AMOUNT YOU PAID FOR THE SOFTWARE IN THE 12 MONTHS BEFORE THE CLAIM.</p>
+<h2>8. Refunds</h2>
+<p>Curfew offers a <strong>7-day free trial of the complete product</strong>, so you can evaluate it fully before paying anything. Because of that, we do not operate a general refund window after purchase.</p>
+<p>If the Software does not work on your machine, email the address in section 11 — we would rather put it right, or refund you, than leave you with something you cannot use.</p>
+<p>Nothing in this section limits any rights you have under mandatory consumer-protection law where you live, including any statutory right of withdrawal.</p>
+<h2>9. Termination</h2>
+<p>This Agreement ends if you breach it or uninstall the Software. Sections 5–7 survive termination.</p>
+<h2>10. Governing law</h2>
+<p>This Agreement is governed by the laws of the <strong>State of Oregon, United States of America</strong>, without regard to its conflict-of-law rules. Nothing in this section deprives you of the protection of mandatory consumer-protection law in your country of residence.</p>
+<h2>11. Contact</h2>
+<p>Questions: <strong>alexander.mcfadden@gmail.com</strong>.</p>
+</main></div>
+<footer><div class="wrap">
+  <a href="../index.html">Home</a><a href="license.html">License</a><a href="privacy.html">Privacy</a><a href="certificate.html">Certificate</a><a href="mailto:alexander.mcfadden@gmail.com">Support</a>
+  <p>&copy; 2026 Curfew. For Windows 10 &amp; 11.</p>
+</div></footer>

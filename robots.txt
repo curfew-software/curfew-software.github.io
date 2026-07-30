@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://curfew-software.github.io/sitemap.xml
